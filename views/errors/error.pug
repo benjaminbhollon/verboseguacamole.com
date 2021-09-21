@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  .spacer
+
+  .section
+    .section__text
+      h1
+        | Error 
+        = status
+
+      p
+        | Uh-oh! You ran into an error. Need to go back 
+        a(href="/") home
+        | ?
+      if error
+        p.tip
+          | Error: 
+          = error

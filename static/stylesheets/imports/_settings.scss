@@ -1,0 +1,65 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Yeseva+One&display=swap');
+
+$base-font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Roboto", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$base-font-size:   20px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+$header-font-family: 'Yeseva One', sans-serif;
+
+$base-sizing: 30px !default;
+$border-radius: $base-sizing*0.2 !default;
+
+$grey-color: hsl(0,0,70) !default;
+$light-grey: hsl(0,0,85) !default;
+$green: hsl(118, 72%, 79%);
+$white: hsl(0, 100%, 100%);
+$black: hsl(0, 0, 0);
+
+$grey-color:       #808080 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+$table-text-align: left !default;
+
+$background-color: #fff !default;
+$text-color: #000 !default;
+
+$content-width: $base-sizing*40 !default;
+
+$on-desktop: $content-width+(4*$base-sizing) !default;
+$on-mobile: $content-width+($base-sizing) !default;
+
+$transition-time: 0.2s;
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+@function css-function( $function, $values... ) {
+	@return 
+		$function
+		+ unquote( '(' )
+		+ $values
+		+ unquote( ')' )
+	;
+}
+
+@function css-min( $values... ) {
+	@return css-function( min, $values );
+}
+
+@function css-max( $values... ) {
+	@return css-function( max, $values );
+}
+
+@function css-clamp( $values... ) {
+	@return css-function( clamp, $values );
+}
+
+:root {
+  --background-color: #fff;
+	--text-color: #000;
+	--grey-text-color: #666;
+}

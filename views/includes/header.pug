@@ -1,0 +1,18 @@
+header.vr.main-header
+  .logo
+    a(href='/') 🥑
+
+  div(style="height:100%;display:flex;align-items:center;gap:30px;")
+    input(type='checkbox').menu-btn#menu-btn
+    label(for='menu-btn').menu-icon
+      span.menu-icon__line
+
+    input(type="checkbox", style="display: none").search-checkbox#search
+
+    ul(style="padding:0").nav-links
+      li.nav-link
+        a(href="#") About
+      li.nav-link
+        a(href="#") Documentation
+      li.nav-link
+        a(href="#") Download

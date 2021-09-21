@@ -1,0 +1,33 @@
+
+footer.site-footer.section  
+  .section__text(style="display:flex;flex-wrap:wrap;padding:padding: 0 calc(10vw - 30px);;flex-direction:row")
+    .footer-col
+      h2.footer-heading Quick Links
+      ul(style="font-size: 1.1em")
+        li(style="margin: 0.5em 0;")
+          a(href="/contact", target="_blank", rel="noopener noreferrer") Contact
+        li(style="margin: 0.5em 0;")
+          a(href="/privacy", target="_blank", rel="noopener noreferrer") Privacy Policy
+        li(style="margin: 0.5em 0;")
+          a(href="/terms", target="_blank", rel="noopener noreferrer") Terms of Service
+
+    .footer-col
+      h2.footer-heading Copyright
+      p &copy; <span id="date"></span> Benjamin Hollon
+      div(style="display: inline-block;width: min-content;")
+    
+    .footer-col
+      h2.footer-heading Socials
+      p Connect with my socials for more from us!
+      ul(style="font-size: 1.1em")
+        li(style="margin: 0.5em 0;")
+          a(href="#", target="_blank", rel="noopener noreferrer") None
+
+script.
+  'use strict';
+  
+  const date = 2020;
+
+  const currentYear = (new Date()).getFullYear().toString();
+
+  document.getElementById('date').innerHTML = date.toString() === currentYear ? currentYear : `${date} - ${currentYear}`;

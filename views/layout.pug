@@ -1,0 +1,143 @@
+doctype html
+html
+  head
+    if title
+      title= title
+    else
+      title Verbose Guacamole
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    link(rel="stylesheet", href="https://unpkg.com/aos@next/dist/aos.css")
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+    meta(
+      name="viewport",
+      content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+    )
+    //- meta(name="format-detection", content="telephone=no")
+    //- meta(name="msapplication-TileColor", content="#da532c")
+    //- meta(name="theme-color", content="#c589d9")
+    //- meta(name="description", content="Hello world.")
+    //- meta(name="twitter:card", content="summary")
+    //- meta(name="twitter:site", content="@ui8")
+    //- meta(name="twitter:title", content="MBTI Typing")
+    //- meta(name="twitter:description", content="Hello world.")
+    //- meta(name="twitter:creator", content="@ui8")
+    //- meta(
+    //-   name="twitter:image",
+    //-   content="https://ui8-folio.herokuapp.com/lib/img/twitter-card.jpg"
+    //- )
+    //- meta(property="og:title", content="MBTI Typing")
+    //- meta(property="og:type", content="Article")
+    //- meta(property="og:url", content="https://mbtityping.com/")
+    //- meta(property="og:image", content="https://mbtityping.com/images/icon.jpg")
+    //- meta(property="og:description", content="Hello world.")
+    //- meta(property="og:site_name", content="MBTI Typing")
+    //- link(rel="icon", href="https://mbtityping.com/images/favicon.png")
+    noscript
+      link(rel="stylesheet", media="all", href="/lib/css/noscript.css")
+    script.
+      var viewportmeta = document.querySelector('meta[name="viewport"]');
+      if (viewportmeta) {
+        if (screen.width < 375) {
+          var newScale = screen.width / 375;
+          viewportmeta.content = 'width=375, minimum-scale=' + newScale + ', maximum-scale=1.0, user-scalable=no, initial-scale=' + newScale + '';
+        } else {
+          viewportmeta.content = 'width=device-width, maximum-scale=1.0, initial-scale=1.0';
+        }
+      }
+  body.collapse(
+    class=typeof heroClass === 'undefined' ? undefined : 'header',
+    onload="javascript:allowAni()"
+  )
+    script.
+      const DARK_THEME = '(prefers-color-scheme: dark)';
+      const root = document.documentElement;
+      var current_theme = 'light';
+
+      function changeWebsiteTheme() {
+        if (current_theme === 'light') {
+          root.style.setProperty('--background-color', '#222');
+          root.style.setProperty('--text-color', '#fff');
+          root.style.setProperty('--grey-text-color', '#999');
+
+          root.style.setProperty('color-scheme', 'dark');
+
+          current_theme = 'dark';
+          setCookie('theme', 'dark', 365);
+        } else {
+          root.style.setProperty('--background-color', '#fff');
+          root.style.setProperty('--text-color', '#000');
+          root.style.setProperty('--grey-text-color', '#666');
+
+          root.style.setProperty('color-scheme', 'light');
+
+          current_theme = 'light';
+          setCookie('theme', 'light', 365);
+        }
+      }
+
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        let expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+      }
+
+      function getCookie(cname) {
+        let name = cname + '=';
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return '';
+      }
+
+      function detectColorScheme() {
+        if (!window.matchMedia) {
+          return;
+        }
+
+        const cookie_theme = getCookie('theme');
+
+        const mqDark = window.matchMedia(DARK_THEME);
+        mqDark.addEventListener('change', (e) => {
+          changeWebsiteTheme();
+        });
+
+        // Check if needed to be changed on page load. Weird logic because the function will always switch it.
+        if (!mqDark.matches || cookie_theme === 'light') {
+          current_theme = 'dark';
+        } else {
+          document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('#toggle').checked = true;
+          });
+        }
+
+        changeWebsiteTheme();
+      }
+
+      detectColorScheme();
+    include includes/header
+
+    div(
+      style="display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh"
+    )
+      .content.vr
+        block content
+
+      include includes/footer
+
+    script(src="/javascripts/main.js")
+    script(src="https://unpkg.com/aos@next/dist/aos.js")
+    script data-host="https://microanalytics.io" data-dnt="false" src="https://microanalytics.io/js/script.js" id="ZwSg9rf6GA" defer 
+    script.
+      AOS.init();
+    script(src="/fontawesome/js/fontawesome.min.js", defer)
+    script(src="/fontawesome/js/regular.min.js", defer)
