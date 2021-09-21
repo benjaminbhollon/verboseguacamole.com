@@ -1,10 +1,8 @@
-import { prisma } from "../components/prisma";
 import { KoaContext } from "../components/router";
 import Validator, {
   ValidationError,
   ValidationSchema,
 } from "fastest-validator";
-import { PublicError } from "../components/sentry";
 
 const validator = new Validator();
 
