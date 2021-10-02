@@ -1,179 +1,92 @@
+:root {
+  --avocado-color: #a5f0a2;
+}
+
 body, body * {
   box-sizing: border-box;
 }
 
 body {
+  text-align: center;
   font-size: 1.3em;
   font-family: 'Trebuchet MS', Calibri, sans-serif;
-  background-color: DeepSkyBlue;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-#container {
-  padding-top: 90px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+a {
+  color: inherit;
 }
 
-#container, #container * {
-  box-sizing: content-box;
+#content {
+  flex: 1 0 auto;
+  padding: 0.25em;
 }
 
-#peel {
-  background-color: #440;
-  width: 200px;
-  height:200px;
-  padding: 7px;
-  border-radius: 100%;
+:not(#navbar > a)::selection {
+  background-color: var(--avocado-color);
+  color: #000;
 }
 
-#body {
-  background-color: #a5f0a2;
-  width: 140px;
-  height: 140px;
-  padding: 30px;
-  border-radius: 100%;
+/* Header */
+header h1 {
+  font-size: 2.5em;
+  margin: 0.25em 0;
 }
 
-#pit {
-  position: absolute;
-  background-color: #740;
-  width: 140px;
-  height: 140px;
-  border-radius: 100%;
-  z-index: 2;
+header p {
+  margin-top: 0.25em;
 }
 
-#inner-pit-1, #inner-pit-2 {
-  border-radius: 100%;
+/* Navbar */
+#navbar {
+  top: 0.25em;
+  left: 0.25em;
+  right: 0.25em;
+  margin: 0 0.25em;
+  color: #fff;
+  background-color: #000c;
+  position: sticky;
+  border-radius: 0.25em;
+  overflow: hidden;
 }
 
-#inner-pit-1 {
-  position: absolute;
-  left: 6px;
-  top: 6px;
-  background-color: #960;
-  width: 120px;
-  height: 120px;
+#navbar > a {
+  text-decoration: none;
+  padding: 0.5em;
+  display: inline-block;
+  transition: background-color 200ms, color 200ms;
 }
 
-#inner-pit-2 {
-  left: 6px;
-  top: 6px;
-  position: absolute;
-  background-color: #a80;
-  width: 100px;
-  height: 100px;
+#navbar > a:hover {
+  background-color: var(--avocado-color);
+  color: #000;
 }
 
-#reflection {
-  background-color: #fdc;
-  width: 45px;
-  height: 45px;
-  border-radius: 100%;
-  position: absolute;
-  left: 12px;
-  top: 12px;
-}
-
-#bulge {
-  position: absolute;
-  background-color: #a5f0a2;
-  margin-top: 30px;
-  left: 50%;
-  height: 200px;
-  width: 150px;
-  border-radius: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
-
-#bulge-peel {
-  position: absolute;
-  background-color: #440;
-  left: 50%;
-  margin-top: 30px;
-  height: 214px;
-  width: 164px;
-  border-radius: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-#eyes {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  /*background-color: #fff;*/
-  height: 30px;
-  width: 60px;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-#eye-1, #eye-2 {
-  background-color: #fff;
-  width: 22px;
-  height: 30px;
-  border-radius: 40px;
-}
-
-#eye-1::after, #eye-2::after {
-  content: '';
-  position: absolute;
-  margin-left: 3px;
-  margin-top: 3px;
-  width: 10px;
-  height: 10px;
+/* Footer */
+footer {
   background-color: #000;
-  border-radius: 100%;
-  z-index: 5;
-  animation: eyes 10s infinite;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+  padding: 0.5em;
+  border-top: 2px solid var(--color);
 }
 
-#eye-1 {
-  float: left;
+footer a {
+  color: inherit;
 }
 
-#eye-2 {
-  float: right;
+.codewithlove a {
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--avocado-color);
+  transition: text-shadow 0.2s;
 }
 
-#mouth {
-  border-bottom: 5px solid #000;
-  height: 25px;
-  width: 100px;
-  position: absolute;
-  top: 33%;
-  left: 50%;
-  border-radius: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-/* Animations */
-
-@keyframes eyes {
-  0% {
-    margin-left: 3px;
-    margin-top: 3px;
-  }
-  25% {
-    margin-left: 3px;
-    margin-top: 17px;
-  }
-
-  50% {
-    margin-left: 9px;
-    margin-top: 17px;
-  }
-
-  75% {
-    margin-left: 9px;
-    margin-top: 3px;
-  }
+.codewithlove a:hover {
+  text-shadow: 0 0 0.6em;
 }

@@ -1,0 +1,42 @@
+doctype html
+html(lang='en-us')
+  head
+    block head
+      - metaImage = '/assets/images/defaultMeta.png'
+      - metaType = 'website'
+      - metaDescription = "An editor for writers (especially novelists) powered by markdown and git."
+      block variables
+      - finalTitle = hardTitle === undefined ? title + " | Verbose Guacamole" : hardTitle
+      block resources
+        link(rel="stylesheet" href="/assets/css/global.css")
+      block meta
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(name="description" content=metaDescription)
+        meta(name="author" content=config.author)
+        meta(property="og:title" content=finalTitle)
+        meta(property="og:type" content=metaType)
+        meta(property="og:description" content=metaDescription)
+        meta(property="og:image" content=metaImage)
+      block title
+        title= finalTitle
+  body
+    header
+      block header
+      nav#navbar
+        a(href="/") Home
+        a(href="/download/") Download
+        a(href="verb") Documentation
+        a(href="/contribute/") Contribute
+    #content
+      block content
+    footer
+      block footer
+      p
+        a(href="https://github.com/benjaminbhollon/verboseguacamole.com" rel="noopener" target="_blank") Code
+        |  | 
+        a(href="https://github.com/benjaminbhollon/verboseguacamole.com/blob/main/LICENSE" rel="noopener" target="_blank") License
+        |  | 
+        a(href="https://github.com/benjaminbhollon/verboseguacamole.com/issues/new" rel="noopener" target="_blank") Report a Bug
+      p.codewithlove
+        a(href="https://seewitheyesclosed.com" rel="noopener" target="_blank") &lt;/&gt; with &lt;3 by Benjamin Hollon

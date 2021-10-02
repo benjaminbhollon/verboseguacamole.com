@@ -1,0 +1,16 @@
+/* typewriter */
+#typewriter__fallback {
+  display: none;
+}
+
+#typewriter::after {
+  display: inline-block;
+  width: 0;
+  content: '_';
+  animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+  from {opacity: 1}
+  to {opacity: 0}
+}

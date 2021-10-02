@@ -1,0 +1,25 @@
+extends layout.pug
+
+block variables
+  - hardTitle = "Verbose Guacamole: Novel-Writing Made Simple"
+
+block append head
+  noscript
+    style.
+      #typewriter {
+        display: none;
+      }
+      #typewriter__fallback {
+        display: block;
+      }
+
+block append resources
+  link(rel="stylesheet" type="text/css" href="/assets/css/homepage.css")
+  script(src='/assets/js/homepage.js' async)
+
+block header
+  h1 Verbose Guacamole
+  p#typewriter__fallback Novel-Writing Made Simple
+  p#typewriter
+
+block content

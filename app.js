@@ -18,7 +18,7 @@ app.use((request, response, next) => {
     return response.render(directory[request.path], {
       parameters: request.query,
       config,
-      md,
+      //md,
       cookies: request.cookies,
     });
   }
@@ -26,6 +26,8 @@ app.use((request, response, next) => {
   if (next) return next();
   return response.status(404).end();
 });
+app.set('view engine', 'pug');
+app.set('views', './templates/');
 
 // Routes
 
