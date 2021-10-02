@@ -1,0 +1,21 @@
+extends layout.pug
+
+block variables
+  - title = (selectDistro === true ? 'Installation' : 'Installation on ' + distro)
+
+block append resources
+  link(rel="stylesheet" type="text/css" href="/assets/css/install.css")
+
+block content
+  include ./mixins/selectDistro.pug
+  if (selectDistro === true)
+    p Select your Operating System:
+    +selectDistro(distro)
+  else
+    article
+      include ./mixins/installInstructions.pug
+      +installInstructions(distro)
+      hr
+      p These instructions are for installing on #{distro}.
+        | 
+        a(href="/install/select/") Get instructions for a different operating system.

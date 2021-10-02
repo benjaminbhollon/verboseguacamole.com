@@ -1,0 +1,6 @@
+mixin installInstructions(distro)
+  case distro
+    when 'Ubuntu'
+      include ./instructions/ubuntu.pug
+    when 'Debian'
+      include ./instructions/debian.pug

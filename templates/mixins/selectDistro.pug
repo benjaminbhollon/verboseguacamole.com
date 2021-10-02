@@ -1,0 +1,15 @@
+- linuxDistros = ['Ubuntu', 'Debian']
+
+mixin distroItem(name)
+  a.distro__item(href=('/install/' + name.replace(' ', '-') + '/'))= name
+
+mixin selectDistro(detected)
+  .distro__select
+    details
+      summary.distro__item Linux
+      each distro of linuxDistros
+        +distroItem(distro)
+    +distroItem('Windows')
+    +distroItem('Mac OS')
+  if (detected) 
+    p: a(href=('/install/' + distro.replace(' ', '-') + '/')) Auto-detected as #{distro}.

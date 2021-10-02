@@ -6,6 +6,7 @@ const typewriterElement = document.getElementById('typewriter');
 const typewriterPrompts = [
   'Novel-writing made simple',
   'Simplicity + Control = VerbGuac',
+  'Free forever',
   'Burrito-fueled creativity',
   'Easy version control',
   'Community-built software',
@@ -41,4 +42,4 @@ function typeNextPrompt() {
   setTimeout(typeNextPrompt, delaySoFar);
 }
 
-setTimeout(typeNextPrompt, wordDelay);
+setTimeout(typeNextPrompt, wordDelay / 2);

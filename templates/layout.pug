@@ -23,11 +23,12 @@ html(lang='en-us')
   body
     header
       block header
-      nav#navbar
-        a(href="/") Home
-        a(href="/download/") Download
-        a(href="verb") Documentation
-        a(href="/contribute/") Contribute
+        h1= (hardTitle ? hardTitle : title)
+    nav#navbar
+      a(href="/") Home
+      a(href="/install/") Install
+      a(href="https://docs.verboseguacamole.com" target="_blank" rel="noopener") Documentation
+      a(href="/contribute/") Contribute
     #content
       block content
     footer
@@ -40,3 +41,5 @@ html(lang='en-us')
         a(href="https://github.com/benjaminbhollon/verboseguacamole.com/issues/new" rel="noopener" target="_blank") Report a Bug
       p.codewithlove
         a(href="https://seewitheyesclosed.com" rel="noopener" target="_blank") &lt;/&gt; with &lt;3 by Benjamin Hollon
+      #wcb.carbonbadge.wcb-d
+    script(src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer)

@@ -1,0 +1,23 @@
+h2 Direct <code>.deb</code> File
+
+p First, find the most recent version on the #[a(href="https://github.com/benjaminbhollon/verbose-guacamole/releases") Github Releases page]. Don't download a version that's title includes "Beta" or "RC", those are preview releases and not intended for normal use.
+
+p Open the accordion labelled "Assets" at the bottom of the release. Download the file that ends in ".deb".
+
+p If you already know how to install <code>.deb</code> files on Debian, go ahead and do so. For others, we recommend you install Gdebi to ease the process. Open your terminal app and run this command:
+
+p: code sudo apt install gdebi*
+
+p Right click on the <code>.deb</code> file you downloaded in your Files application, and select "Open With Other Application". Select "GDebi Package Installer".
+
+p From the screen that opens up, select "Install Package" and Verbose Guacamole will be installed on your system.
+
+h3 Upgrading
+
+p To upgrade your version, follow the exact same steps and the new version will replace your old version. Make sure to close any running windows from Verbose Guacamole first!
+
+h2 In the Future
+
+p We are planning to create a package repository of some sort to ease installation and upgrading of VerbGuac on Ubuntu systems.
+
+p We are also considering allowing distribution via snap and flatpak to improve cross-distro support.
