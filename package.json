@@ -1,32 +1,21 @@
 {
   "name": "verboseguacamole.com",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
-  "main": "dist/index.js",
+  "version": "0.0.1",
+  "license": "GPL-3.0",
+  "main": "app.js",
   "scripts": {
-    "build": "rm -rf dist && tsc",
-    "start": "./node_modules/.bin/prisma generate && ./node_modules/.bin/prisma db push && tsc && ./node_modules/pm2/bin/pm2-runtime dist/index.js",
-    "watch": "tsc-watch --noClear -p tsconfig.json --onSuccess 'node dist/index.js'",
-    "prettier": "prettier --write package.json tsconfig.json src/**/*.ts views/*.pug"
-  },
-  "engines": {
-    "node": "^16.9.1"
+    "start": "pm2 start app.js --name=verboseguacamole.com && pm2 save",
+    "stop": "pm2 delete verboseguacamole.com && pm2 save",
+    "restart": "pm2 restart verboseguacamole.com",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
-    "koa": "^2.13.1",
-    "koa-body": "^4.2.0",
-    "koa-mount": "^4.0.0",
-    "koa-router": "^10.0.0",
-    "koa-static": "^5.0.0",
-    "mime-types": "^2.1.32",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "pm2": "^5.1.1",
-    "pug": "^3.0.2",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.3.5"
+    "pug": "^3.0.2"
   },
   "devDependencies": {
-    "@prettier/plugin-pug": "^1.16.3",
-    "prettier": "^2.3.2",
-    "tsc-watch": "^4.4.0"
+    "nodemon": "^2.0.13"
   }
 }
