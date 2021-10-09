@@ -10,12 +10,15 @@ block content
   include ./mixins/selectDistro.pug
   if (selectDistro === true)
     p Select your Operating System:
-    +selectDistro(distro)
+    +selectDistro(distro, supportedDistros)
   else
     article
+      aside: em
+        b Note:
+        | There has not yet been a complete release of Verbose Guacamole. As such, some of this information may be incorrect. For example, there is not currently a version which is not either Beta or a Release Candidate (RC).
       include ./mixins/installInstructions.pug
       +installInstructions(distro)
       hr
       p These instructions are for installing on #{distro}.
-        | 
+        |
         a(href="/install/select/") Get instructions for a different operating system.

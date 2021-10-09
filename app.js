@@ -58,7 +58,8 @@ app.get('/install/select/', async (request, response) => {
     config,
     distro: distro,
     cookies: request.cookies,
-    selectDistro: true
+    selectDistro: true,
+    supportedDistros
   });
 });
 

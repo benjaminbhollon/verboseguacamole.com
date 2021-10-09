@@ -1,15 +1,15 @@
-- linuxDistros = ['Ubuntu', 'Debian']
+- linuxDistros = ['Ubuntu', 'Debian', 'Fedora']
 
 mixin distroItem(name)
   a.distro__item(href=('/install/' + name.replace(' ', '-') + '/'))= name
 
-mixin selectDistro(detected)
+mixin selectDistro(detected, supportedDistros)
   .distro__select
-    details
+    details(open=(detected === 'Linux'))
       summary.distro__item Linux
       each distro of linuxDistros
         +distroItem(distro)
     +distroItem('Windows')
-    +distroItem('Mac OS')
-  if (detected) 
+    //-+distroItem('Mac OS')
+  if (detected && supportedDistros.indexOf(detected) !== -1)
     p: a(href=('/install/' + distro.replace(' ', '-') + '/')) Auto-detected as #{distro}.
