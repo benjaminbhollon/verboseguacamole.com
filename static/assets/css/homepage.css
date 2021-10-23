@@ -1,6 +1,7 @@
 /* typewriter */
 #typewriter__fallback {
-  display: none;
+  font-size: 0;
+  margin: 0;
 }
 
 #typewriter::after {
@@ -13,4 +14,47 @@
 @keyframes cursor-blink {
   from {opacity: 1}
   to {opacity: 0}
+}
+
+.split > div {
+  display: none;
+}
+
+.full {
+  text-align: center;
+  padding: 0 0.5em;
+  margin: -0.5em;
+  margin-top: 0.5em;
+}
+
+.full > article {
+  max-width: 60ch;
+  display: inline-block;
+}
+
+.full.--blue {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 27%, rgba(0,127,154,1) 81%);
+  color: #fff;
+}
+
+@media (min-width: 80ch) {
+  .split.left {
+    grid-gap: 1em;
+    display: grid;
+    grid-template-columns: 60% auto;
+  }
+
+  .split.right {
+    grid-gap: 1em;
+    display: grid;
+    grid-template-columns: auto 60%;
+  }
+
+  .split > div {
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-image: var(--background);
+  }
 }

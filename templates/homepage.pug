@@ -10,7 +10,9 @@ block append head
         display: none;
       }
       #typewriter__fallback {
-        display: block;
+        font-size: inherit;
+        margin-top: 0.25rem;
+        margin-bottom: 1rem;
       }
 
 block append resources
@@ -20,6 +22,45 @@ block append resources
 block header
   h1 Verbose Guacamole
   p#typewriter__fallback Novel-Writing Made Simple
-  p#typewriter
+  p#typewriter(aria-hidden="true")
 
 block content
+  .split.left
+    article
+      h2 Powerful Features
+      p Verbose Guacamole is packed with features designed to help you write your novel quickly and efficiently. Here are a few examples:
+      ul
+        li Built-in word sprint timer
+        li Built-in goal tracker
+        li Version Control via Git
+        li File labels to visually categorize scenes
+        li Native export capability to EPUB, Markdown, Raw Text, and NaNoWriMo Obfuscated Text, with guides to convert to more formats.
+        li Switchable color themes
+    div(style="--background: url(https://raw.githubusercontent.com/benjaminbhollon/verbose-guacamole/develop/screenshots/v0.3.3-editor.png)")
+  
+  .split.right
+    div(style="--background: url(/assets/images/defaultMeta.png)")
+    article
+      h2 Compact Design
+      p The visual layout of Verbose Guacamole was designed to allow you as much space as possible to write.
+      p The Git and Filetree panels can each be collapsed, and most of the more advanced features are hidden behind icons in the Novel Stats bar on the bottom. Even the word count status allows you to set goals when you click on it, and a progress bar will fill in its background as you write.
+      p Finally, all of the extra UI elements can be hidden by toggling Focus Mode either by hitting <code>F11</code>, selecting <code>Tools =&gt; Focus Mode</code> in the application menu, or pressing the fullscreen icon in the menu of the editor.
+      
+  .split.left
+    article
+      h2 The Future
+      p Verbose Guacamole was built with the future in mind—the codebase is built to be extended in the future to bring you highly requested features that didn't make it into the first release:
+      ul
+        li Split screen (edit two scenes side by side)
+        li Third-party themes (or build your own)
+        li Syncing between devices via Git
+        li Multiligual support (for spellcheck, and potentially UI)
+      p Best yet, <a href="/contributing/">you can help us build these features</a>!
+    div(style="--background: url(/assets/images/doors.jpg)")
+      
+  .full.--blue
+    article
+      h2 Download Now
+      p Verbose Guacamole v21.10 is available for #[em free] with detailed installation guides for Linux, Windows and Mac OS.
+      p.button.--black: a(href="/install/") Get It Now
+      p.--center: a(href="/news/article/version-numbering-explained/") Why is "v21.10" the first version number?

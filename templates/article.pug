@@ -1,0 +1,12 @@
+extends layout.pug
+
+block variables
+  - title = metadata.title
+  - metaAuthor = metadata.author
+  - metaDescription = metadata.description
+
+block append header
+  p.article__details #{metadata.date} by #{metadata.author}
+
+block content
+  article!= content + '<hr><p>This article is licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>.</p>'

@@ -1,0 +1,15 @@
+extends layout.pug
+
+block variables
+  - title = "News"
+  - metaDescription = "News about the Git- and Markdown-powered FOSS novel editor, Verbose Guacamole."
+
+block content
+  each article of articles
+    article
+      h2= article.title
+      p.article__details.--center #{article.date} by #{article.author}
+      != marked(article.summary)
+      p.button.--black: a(href=("/news/article/" + article.slug + '/')) Read Now
+  article
+    p You can get updates by #[a(href="/feed/") subscribing via RSS] or checking the "News" panel in the homepage of Verbose Guacamole.
