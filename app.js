@@ -137,6 +137,7 @@ app.get('/feed/', async (request, response) => {
         <item>
           <title>${article.title}</title>
           <link>https://${request.hostname}/news/article/${article.slug}/</link>
+          <author>${article.author}</author>
           <guid ispermalink="false">${article.slug}</guid>
           <pubDate>${(new Date(article.date)).toUTCString()}</pubDate>
           <description>${article.summary.replace('&nbsp;', ' ').replace(/(<([^>]+)>)/ig, '')}</description>
