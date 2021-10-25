@@ -6,6 +6,8 @@ p Unfortunately, Windows does not come with Git. If you'd like to test for it an
 
 p If Git is not installed, #[a(href="https://git-scm.com" target="_blank" rel="noopener") install it from the official website].
 
+p For easiest installation, we recommend using the #[a(href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener") install it from the official website].
+
 h3 Set Git Config
 
 p #[strong Do not skip this step!] Current, Verbose Guacamole checks to see if you have Git installed, but it does not check to see if Git is properly configured, which is still required to be able to create commits.
@@ -16,21 +18,21 @@ pre: code.
   git config --global user.name "Your Name"
   git config --global user.email "youremail@yourdomain.com"
   
-p (To run commands, open either the "Command Prompt" or "Windows Powershell" app, type or copy/paste them in, and hit the return key.)
+p (To run commands, open the "Terminal" app, type or copy/paste them in, and hit the return key.)
 
 p To confirm, you can run <code>git config --list</code>, which should output the values you set above.
 
-h2 Direct <code>.exe</code> File
+h2 Direct <code>.dmg</code> File
 
 p First, find the most recent version on the #[a(href="https://github.com/benjaminbhollon/verbose-guacamole/releases") Github Releases page]. Don't pick a version that's title includes "Beta" or "RC", those are preview releases and not intended for normal use.
 
-p Open the accordion labelled "Assets" at the bottom of the release. Download the file that ends in ".exe".
+p Open the accordion labelled "Assets" at the bottom of the release. Download the file that ends in ".dmg".
 
-p You should be able to open the file normally, and it will install and run VerbGuac on your system. You may receive a warning from your antivirus or Windows Smartscreen. If you trust us, you may safely ignore this warning.
+p You should be able to open the file normally. You will be presented two icons, a file labelled "Verbose Guacamole" and a folder labelled "Applications". Drag the file icon onto the folder icon, and it will add VerbGuac to your applications.
 
 h3 Upgrading
 
-p To upgrade your version, follow the exact same steps and the new version will replace your old version. Make sure to close any running windows from Verbose Guacamole first!
+p To upgrade your version, follow the exact same steps and the new version should replace your old version. Make sure to close any running windows from Verbose Guacamole first!
 
 h2 In the Future
 

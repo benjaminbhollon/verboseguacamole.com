@@ -6,3 +6,7 @@ mixin installInstructions(distro)
       include ./instructions/debian.pug
     when 'Fedora'
       include ./instructions/fedora.pug
+    when 'Windows'
+      include ./instructions/windows.pug
+    when 'Mac OS'
+      include ./instructions/mac.pug

@@ -33,7 +33,7 @@ function updateMetadata() {
 
 const supportedDistros = [
   'Windows',
-  //'Mac OS',
+  'Mac OS',
   'Ubuntu',
   'Debian',
   'Fedora',
@@ -87,7 +87,7 @@ app.get('/install/select/', async (request, response) => {
 });
 
 app.get('/install/:distro/', async (request, response) => {
-  if (supportedDistros.indexOf(request.params.distro) === -1)
+  if (supportedDistros.indexOf(request.params.distro.replace('-', ' ')) === -1)
     return response.redirect(302, '/install/select/');
 
   response.render('install', {
@@ -104,8 +104,6 @@ app.get('/news/', async (request, response) => {
 });
 
 app.get('/news/article/:slug/', async (request, response, next) => {
-  console.log(request.params.slug);
-
   let content = '';
   try {
     content = fs.readFileSync(path.resolve(`./assets/news/${request.params.slug}.md`)).toString();
@@ -131,7 +129,7 @@ app.get('/feed/', async (request, response) => {
     <title>Verbose Guacamole News</title>
     <description>News about the Git- and Markdown-powered FOSS novel editor, Verbose Guacamole.</description>
     <language>en-us</language>
-    <copyright>© Benjamin Hollon ${(new Date()).getFullYear()} and the Verbose Guacamole contributors. Content licensed under CC BY-NC 4.0.</copyright>
+    <copyright>© Benjamin Hollon and the Verbose Guacamole contributors ${(new Date()).getFullYear()}. Content licensed under CC BY-NC 4.0.</copyright>
     <link>https://${request.hostname}/</link>${
       articleCache.metadata.map(article => `
         <item>

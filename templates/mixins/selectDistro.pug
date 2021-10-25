@@ -1,4 +1,4 @@
-- linuxDistros = ['Ubuntu', 'Debian', 'Fedora']
+- linuxDistros = ['Ubuntu', 'Debian', 'Red Hat']
 
 mixin distroItem(name)
   a.distro__item(href=('/install/' + name.replace(' ', '-') + '/'))= name
@@ -10,6 +10,6 @@ mixin selectDistro(detected, supportedDistros)
       each distro of linuxDistros
         +distroItem(distro)
     +distroItem('Windows')
-    //-+distroItem('Mac OS')
+    +distroItem('Mac OS')
   if (detected && supportedDistros.indexOf(detected) !== -1)
     p: a(href=('/install/' + distro.replace(' ', '-') + '/')) Auto-detected as #{distro}.

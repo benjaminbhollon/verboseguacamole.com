@@ -1,3 +1,23 @@
+h2 Install Git
+
+p Verbose Guacamole currently requires you to have Git installed to use the version control features.
+
+p The good news is, most Linux distros have Git installed by default. To make sure, run <code>git --version</code>, which should output your current version of Git.
+
+p If Git is not installed, run <code>sudo apt install git</code> to install it.
+
+h3 Set Git Config
+
+p #[strong Do not skip this step!] Current, Verbose Guacamole checks to see if you have Git installed, but it does not check to see if Git is properly configured, which is still required to be able to create commits.
+
+p To configure Git, run the following commands, replacing <code>youremail@yourdomain.com</code> with your email address and <code>Your Name</code> with your full name.
+
+pre: code.
+  git config --global user.name "Your Name"
+  git config --global user.email "youremail@yourdomain.com"
+
+p To confirm, you can run <code>git config --list</code>, which should output the values you set above.
+
 h2 Direct <code>.deb</code> File
 
 p First, find the most recent version on the #[a(href="https://github.com/benjaminbhollon/verbose-guacamole/releases") Github Releases page]. Don't pick a version that's title includes "Beta" or "RC", those are preview releases and not intended for normal use.
@@ -11,6 +31,14 @@ p: code sudo apt install gdebi*
 p Right click on the <code>.deb</code> file you downloaded in your Files application, and select "Open With Other Application". Select "GDebi Package Installer".
 
 p From the screen that opens up, select "Install Package" and Verbose Guacamole will be installed on your system.
+
+h2 Direct <code>.zip</code> File
+
+p Alternatively, you can run a portable version of VerbGuac via a <code>.zip</code> file. Download the release file that ends with <code>.zip</code> and includes the term <code>linux</code> in it.
+
+p Unzip the file. In the resulting folder, there should be a file named <code>verbose-guacamole</code>. Run this file to run the program.
+
+p Please note, this version of VerbGuac is not as rigorously tested as the others, so be cautious using it.
 
 h3 Upgrading
 
